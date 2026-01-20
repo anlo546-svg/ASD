@@ -1,0 +1,49 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class OrdenacioTaula {
+
+    // Declarem l'Scanner fora perquè sigui accessible per tots els mètodes
+    static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        // 1. Demanar la mida
+        System.out.println("Introdueix la mida de la taula:");
+        int mida = scanner.nextInt();
+
+        // 2. Cridar al mètode d'entrada de dades (Requisit 1)
+        int[] taula = llegirTaula(mida);
+
+        // 3. Cridar al mètode d'ordenació (Requisit 2)
+        int[] taulaOrdenada = ordenarTaula(taula);
+
+        // 4. Mostrar resultat
+        System.out.println("\nTaula ordenada:");
+        for (int i = 0; i < taulaOrdenada.length; i++) {
+            System.out.print(taulaOrdenada[i] + " ");
+        }
+        System.out.println(); // Salt de línia final
+    }
+
+    // --- Mètode 1: Entrada de dades ---
+    // Rep: int (mida) | Retorna: int[] (array ple)
+    public static int[] llegirTaula(int mida) {
+        int[] array = new int[mida];
+        
+        System.out.println("\nIntrodueix els valors:");
+        for (int i = 0; i < mida; i++) {
+            System.out.print("Valor " + (i + 1) + ": ");
+            array[i] = scanner.nextInt();
+        }
+        return array;
+    }
+
+    // --- Mètode 2: Ordenació de dades ---
+    // Rep: int[] (desordenat) | Retorna: int[] (ordenat)
+    public static int[] ordenarTaula(int[] array) {
+        // Utilitzem el mètode ràpid de Java. 
+        // Si el professor vol un algorisme manual (com la bombolla), avisa'm!
+        Arrays.sort(array);
+        return array;
+    }
+}
